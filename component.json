@@ -1,0 +1,26 @@
+{
+  "name": "emailinput",
+  "repo": "jasonmorganson/emailinput",
+  "description": "HTML5 form email input",
+  "version": "0.0.1",
+  "keywords": [
+    "HTML",
+    "HTML5",
+    "form",
+    "input",
+    "email"
+  ],
+  "dependencies": {
+    "component/events": "*",
+    "component/classes": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "emailinput.css"
+  ]
+}
