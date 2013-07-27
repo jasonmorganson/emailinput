@@ -3,6 +3,9 @@
 
   HTML5 form email input
 
+  Provides basic, but correct validation. Which is to say that it checks that
+  there is text before and after the at character. Includes default styling.
+
 ## Installation
 
   Install with [component(1)](http://component.io):
@@ -23,6 +26,8 @@ function EmailInput(element)
 
 ```
 
+Listen for `email`, `invalid`, `valid` events
+
 ## Example
 
 ```
@@ -36,11 +41,17 @@ function EmailInput(element)
     <script src="build/build.js"></script>
   </head>
   <body>
-    <input type="email" name="email" placeholder="Email">
+    <form id="form">
+      <input id="email" class="email" name="email" type="email" placeholder="Email" />
+    </form>
     <script>
-      var emailinput = require('emailinput')
-      var el = document.querySelector('[name=email]')
-      emailinput(el)
+      var emailElement = document.forms['form'].email
+      var EmailInput = require('emailinput')
+      var emailinput = new EmailInput(emailElement);
+
+      emailinput.on('valid', function(email) {
+          console.log(email)
+      })
     </script>
   </body>
 </html>
