@@ -58,12 +58,12 @@ EmailInput.prototype.onkeyup = function() {
 
         classes(this.element).remove('error')
         classes(this.element).add('valid')
-
-        // Start emitting email
         this.emit('valid', this.element.value)
 
     } else {
 
+        this.emit('email', this.element.value)
+        this.emit('invalid', this.element.value)
         classes(this.element).remove('valid')
     }
 }
