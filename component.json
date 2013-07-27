@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "component/events": "*",
+    "component/emitter": "*",
     "component/classes": "*"
   },
   "development": {},

@@ -6,6 +6,7 @@ var events, classes
 
 events = require('events')
 classes = require('classes')
+EventEmitter = require('emitter')
 
 /**
  * Expose `EmailInput`.
@@ -31,7 +32,11 @@ function EmailInput(element) {
     this.events.bind('keydown')
 
     classes(element).add('email-input')
+
+    EventEmitter.call(this)
 }
+
+EmailInput.prototype = Object.create(EventEmitter.prototype);
 
 EmailInput.prototype.onkeydown = function() {
 
@@ -54,8 +59,8 @@ EmailInput.prototype.onkeyup = function() {
         classes(this.element).remove('error')
         classes(this.element).add('valid')
 
-        // Start checking email
-        console.log(this.element.value)
+        // Start emitting email
+        this.emit('valid', this.element.value)
 
     } else {
 
